@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="TilemgmtBundle\Entity\TilemgmtTiles" table="tilemgmt.tiles">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="SEQUENCE"/>
+      <sequence-generator sequence-name="tilemgmt.tiles_id_seq" allocation-size="1" initial-value="1"/>
+    </id>
+    <field name="mapId" type="bigint" column="map_id" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="tileColRow" type="string" column="tile_col_row" length="50" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="tileImageUrl" type="string" column="tile_image_url" length="250" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">MISSING</option>
+      </options>
+    </field>
+    <field name="tileSectorName" type="string" column="tile_sector_name" length="50" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="tilePlayable" type="boolean" column="tile_playable" nullable="true">
+      <options>
+        <option name="default"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

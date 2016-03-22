@@ -5,12 +5,12 @@ namespace TilemgmtBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Tilemgmt.maps
+ * TilemgmtMaps
  *
  * @ORM\Table(name="tilemgmt.maps")
  * @ORM\Entity
  */
-class Tilemgmt.maps
+class TilemgmtMaps
 {
     /**
      * @var integer
@@ -43,6 +43,39 @@ class Tilemgmt.maps
      */
     private $mapImageUrl = 'MISSING';
 
+    public function getId()
+    {
+        return $this->id;
+    }
 
+    public function getMapName()
+    {
+        return $this->mapName;
+    }
+
+    public function isMapPlayable()
+    {
+        return $this->mapPlayable;
+    }
+
+    public function getMapImageUrl()
+    {
+        return $this->mapImageUrl;
+    }
+
+    public function setMapImageUrl($mapImageUrl)
+    {
+        $this->mapImageUrl = $mapImageUrl;
+    }
+
+    public function setMapName($mapName)
+    {
+        $this->mapName = $mapName;
+    }
+
+    public function setMapPlayable($mapPlayable)
+    {
+        $this->mapPlayable = $mapPlayable;
+    }
 }
 

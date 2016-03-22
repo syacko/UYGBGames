@@ -15,5 +15,4 @@ class APIController extends Controller
         $user = array('name' => 'Scott', 'active' => true);
         return $this->render('TilemgmtBundle:API:index.html.twig', array('user' => $user));
     }
-
 }

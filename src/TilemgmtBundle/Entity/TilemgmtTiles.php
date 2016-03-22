@@ -55,7 +55,7 @@ class TilemgmtTiles
      *
      * @ORM\Column(name="tile_playable", type="boolean", nullable=true)
      */
-    private $mapPlayable = false;
+    private $tilePlayable = false;
 
 
     public function getId()
@@ -83,7 +83,7 @@ class TilemgmtTiles
         return $this->tileSectorName;
     }
 
-    public function isMapPlayable()
+    public function isTilePlayable()
     {
         return $this->mapPlayable;
     }
@@ -103,9 +103,9 @@ class TilemgmtTiles
         $this->tileColRow = $tileColRow;
     }
 
-    public function setMapPlayable($mapPlayable)
+    public function setTilePlayable($tilePlayable)
     {
-        $this->mapPlayable = $mapPlayable;
+        $this->tilePlayable = $tilePlayable;
     }
 
     public function setTileImageUrl($tileImageUrl)

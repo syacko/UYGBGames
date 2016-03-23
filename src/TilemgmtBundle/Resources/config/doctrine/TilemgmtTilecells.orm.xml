@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="TilemgmtBundle\Entity\TilemgmtTilecells" table="tilemgmt.tilecells">
+    <id name="id" type="bigint" column="id">
+      <generator strategy="SEQUENCE"/>
+      <sequence-generator sequence-name="tilemgmt.tilecells_id_seq" allocation-size="1" initial-value="1"/>
+    </id>
+    <field name="tileId" type="bigint" column="tile_id" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="mapId" type="bigint" column="map_id" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="cellBuildable" type="boolean" column="cell_buildable" nullable="true">
+      <options>
+        <option name="default"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

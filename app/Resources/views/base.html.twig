@@ -2,10 +2,10 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %} The Game by UYBGames</title>
-        <link href="http://mybitnami/jquery-ui.css" rel="stylesheet" type='text/css'>
-        <link href="http://mybitnami/thegame.css" rel="stylesheet" type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Orbitron:400,700|Duru+Sans' rel='stylesheet' type='text/css'>
+        <title>{% block title %}{% endblock %} The Game by UYBGames</title>
+        <link rel="stylesheet" type='text/css' href="http://mybitnami/jquery-ui.css"/>
+        <link rel="stylesheet" type='text/css' href="http://mybitnami/thegame.css"/>
+        <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Orbitron:400,700|Duru+Sans'/>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>

@@ -85,7 +85,7 @@ class TilemgmtTiles
 
     public function isTilePlayable()
     {
-        return $this->mapPlayable;
+        return $this->tilePlayable;
     }
 
     public function setId($id)

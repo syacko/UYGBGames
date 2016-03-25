@@ -5,6 +5,11 @@ namespace GameSetupBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
+/**
+ * Game Setup controller.
+ *
+ * @Route("/gamesetup")
+ */
 class DefaultController extends Controller
 {
     /**
@@ -12,6 +17,9 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('GameSetupBundle:Default:index.html.twig');
+//        return $this->render('GameSetupBundle:Default:index.html.twig'); DO NOT USE
+        $imgLocal = $this->container->getParameter("img_local");
+//        echo $imgLocal;
+        return $this->render('GameSetupBundle:Default:gamesetup.html.twig', array('imgLocal' => $imgLocal));
     }
 }

@@ -26,10 +26,9 @@
         </div>
         <div id="mainMap">
         </div>
-    {% endspaceless %}
     {#The following line includes the Javascript D3 base library#}
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.14/d3.min.js"></script>
-    <script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{{ jsLibrary }}/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
 
     <script>
 
@@ -107,7 +106,7 @@
                         var mainMapSVG = this.buildMainSVGBorder();
 
                         //Load Image into mainMap
-                        this.buildMainImage(mainMapSVG, "{{ imgLocal }}DisplaySnow-blue.gif");
+                        this.buildMainImage(mainMapSVG, "{{ imgLocal }}/DisplaySnow-blue.gif");
 
                         //Load text on display snow
                         mainMapSVG.append("text").text("Click on a the mini map to zoom in on a sector.")
@@ -218,4 +217,5 @@
         }
 
     </script>
+    {% endspaceless %}
 {% endblock %}

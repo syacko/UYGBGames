@@ -16,6 +16,14 @@ use TilemgmtBundle\Form\TilemgmtMapsType;
  */
 class TilemgmtMapsController extends Controller
 {
+    private $jsLibrary;
+
+    private function __constructor()
+    {
+        $jsLibrary = $this->container->getParameter("js_library");
+
+    }
+
     /**
      * Lists all TilemgmtMaps entities.
      *
@@ -28,9 +36,13 @@ class TilemgmtMapsController extends Controller
 
         $tilemgmtMaps = $em->getRepository('TilemgmtBundle:TilemgmtMaps')->findAll();
 
-        return $this->render('tilemgmtmaps/index.html.twig', array(
-            'tilemgmtMaps' => $tilemgmtMaps,
-        ));
+        return $this->render(
+            'tilemgmtmaps/index.html.twig',
+            array(
+                'tilemgmtMaps' => $tilemgmtMaps,
+                'jsLibrary' => $this->jsLibrary,
+            )
+        );
     }
 
     /**
@@ -50,13 +62,16 @@ class TilemgmtMapsController extends Controller
             $em->persist($tilemgmtMap);
             $em->flush();
 
-            return $this->redirectToRoute('tilemgmtmaps_show', array('id' => $tilemgmtMap->getId()));
+            return $this->redirectToRoute('tilemgmtmaps_show', array('id' => $tilemgmtMap->getId(), 'jsLibrary' => $this->jsLibrary,));
         }
 
-        return $this->render('tilemgmtmaps/new.html.twig', array(
-            'tilemgmtMap' => $tilemgmtMap,
-            'form' => $form->createView(),
-        ));
+        return $this->render(
+            'tilemgmtmaps/new.html.twig',
+            array(
+                'tilemgmtMap' => $tilemgmtMap,
+                'form' => $form->createView(),
+            )
+        );
     }
 
     /**
@@ -69,10 +84,14 @@ class TilemgmtMapsController extends Controller
     {
         $deleteForm = $this->createDeleteForm($tilemgmtMap);
 
-        return $this->render('tilemgmtmaps/show.html.twig', array(
-            'tilemgmtMap' => $tilemgmtMap,
-            'delete_form' => $deleteForm->createView(),
-        ));
+        return $this->render(
+            'tilemgmtmaps/show.html.twig',
+            array(
+                'tilemgmtMap' => $tilemgmtMap,
+                'jsLibrary' => $this->jsLibrary,
+                'delete_form' => $deleteForm->createView(),
+            )
+        );
     }
 
     /**
@@ -95,11 +114,15 @@ class TilemgmtMapsController extends Controller
             return $this->redirectToRoute('tilemgmtmaps_edit', array('id' => $tilemgmtMap->getId()));
         }
 
-        return $this->render('tilemgmtmaps/edit.html.twig', array(
-            'tilemgmtMap' => $tilemgmtMap,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
+        return $this->render(
+            'tilemgmtmaps/edit.html.twig',
+            array(
+                'tilemgmtMap' => $tilemgmtMap,
+                'jsLibrary' => $this->jsLibrary,
+                'edit_form' => $editForm->createView(),
+                'delete_form' => $deleteForm->createView(),
+            )
+        );
     }
 
     /**
@@ -134,7 +157,6 @@ class TilemgmtMapsController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('tilemgmtmaps_delete', array('id' => $tilemgmtMap->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

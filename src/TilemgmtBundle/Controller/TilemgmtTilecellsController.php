@@ -16,6 +16,14 @@ use TilemgmtBundle\Form\TilemgmtTilecellsType;
  */
 class TilemgmtTilecellsController extends Controller
 {
+    private $jsLibrary;
+
+    private function __constructor()
+    {
+        $jsLibrary = $this->container->getParameter("js_library");
+
+    }
+
     /**
      * Lists all TilemgmtTilecells entities.
      *
@@ -30,6 +38,7 @@ class TilemgmtTilecellsController extends Controller
 
         return $this->render('tilemgmttilecells/index.html.twig', array(
             'tilemgmtTilecells' => $tilemgmtTilecells,
+            'jsLibrary' => $this->jsLibrary,
         ));
     }
 
@@ -55,6 +64,7 @@ class TilemgmtTilecellsController extends Controller
 
         return $this->render('tilemgmttilecells/new.html.twig', array(
             'tilemgmtTilecell' => $tilemgmtTilecell,
+            'jsLibrary' => $this->jsLibrary,
             'form' => $form->createView(),
         ));
     }
@@ -71,6 +81,7 @@ class TilemgmtTilecellsController extends Controller
 
         return $this->render('tilemgmttilecells/show.html.twig', array(
             'tilemgmtTilecell' => $tilemgmtTilecell,
+            'jsLibrary' => $this->jsLibrary,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -97,6 +108,7 @@ class TilemgmtTilecellsController extends Controller
 
         return $this->render('tilemgmttilecells/edit.html.twig', array(
             'tilemgmtTilecell' => $tilemgmtTilecell,
+            'jsLibrary' => $this->jsLibrary,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

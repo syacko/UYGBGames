@@ -5,14 +5,29 @@ namespace TilemgmtBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
+/**
+ * TilemgmtAPI controller.
+ *
+ * @Route("/tilemgmt_api")
+ */
 class APIController extends Controller
 {
     /**
-     * @Route("/index")
+     * @Route("/isBuildable")
      */
-    public function indexAction()
+    public function isBuildableAction()
     {
-        $user = array('name' => 'Scott', 'active' => true);
-        return $this->render('TilemgmtBundle:API:index.html.twig', array('user' => $user));
+        $jsLibrary = $this->container->getParameter("js_library");
+        return $this->render('TilemgmtBundle:API:is_buildable.html.twig', array('jsLibrary' => $jsLibrary));
     }
+
+    /**
+     * @Route("/markUnbuildable")
+     */
+    public function markUnbuildableAction()
+    {
+        $jsLibrary = $this->container->getParameter("js_library");
+        return $this->render('TilemgmtBundle:API:mark_unbuildable.html.twig', array('jsLibrary' => $jsLibrary));
+    }
+
 }

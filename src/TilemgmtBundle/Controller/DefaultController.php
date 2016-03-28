@@ -9,6 +9,8 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/")
+     * @Route("/index")
+     * @Route("/tilemgmt")
      */
     public function indexAction()
     {

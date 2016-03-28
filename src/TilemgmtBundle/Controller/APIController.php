@@ -30,4 +30,13 @@ class APIController extends Controller
         return $this->render('TilemgmtBundle:API:mark_unbuildable.html.twig', array('jsLibrary' => $jsLibrary));
     }
 
+    /**
+     * @Route("/")
+     */
+    public function indexAction()
+    {
+        $jsLibrary = $this->container->getParameter("js_library");
+        return $this->render('TilemgmtBundle:API:index.html.twig', array('jsLibrary' => $jsLibrary, 'myName' => 'Scott',));
+    }
+
 }

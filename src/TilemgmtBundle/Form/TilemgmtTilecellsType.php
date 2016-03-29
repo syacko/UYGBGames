@@ -18,6 +18,7 @@ class TilemgmtTilecellsType extends AbstractType
             ->add('tileId')
             ->add('mapId')
             ->add('cellBuildable')
+            ->add('tilecellColRow')
         ;
     }
     

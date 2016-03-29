@@ -20,5 +20,10 @@
         <option name="default"/>
       </options>
     </field>
+    <field name="tilecellColRow" type="string" column="tilecell_col_row" nullable="true">
+      <options>
+        <option name="default"/>
+      </options>
+    </field>
   </entity>
 </doctrine-mapping>

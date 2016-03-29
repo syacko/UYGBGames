@@ -37,6 +37,13 @@ class TilemgmtTilecells
     private $mapId;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="tilecell_col_row", type="string", nullable=false)
+     */
+    private $tilecellColRow;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="cell_buildable", type="boolean", nullable=true)
@@ -56,6 +63,11 @@ class TilemgmtTilecells
     public function getTileId()
     {
         return $this->tileId;
+    }
+
+    public function getTilecellColRow()
+    {
+        return $this->tilecellColRow;
     }
 
     public function isCellBuildable()
@@ -78,9 +90,18 @@ class TilemgmtTilecells
         $this->tileId = $tileId;
     }
 
+    public function setTilecellColRow($tilecellColRow)
+    {
+        $this->tilecellColRow = $tilecellColRow;
+    }
+
+    public function buildTilecellColRow($tilecellCol, $tilecellRow)
+    {
+        $this->setTilecellColRow(json_encode(array('col'=>$tilecellCol,'row'=>$tilecellRow)));
+    }
+
     public function setCellBuildable($cellBuildable)
     {
         $this->cellBuildable = $cellBuildable;
     }
 }
-

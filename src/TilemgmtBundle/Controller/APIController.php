@@ -34,7 +34,7 @@ class APIController extends Controller
         $tilemgmtTilecells = new TilemgmtTilecells();
         $tilemgmtTilecells->setMapId(26);
         $tilemgmtTilecells->setTileId(25);
-        $tilemgmtTilecells->setTilecellColRow(0, 0);
+        $tilemgmtTilecells->buildTilecellColRow(0,0);
         $tilemgmtTilecells->setCellBuildable(true);
 
         $em = $this->getDoctrine()->getManager();

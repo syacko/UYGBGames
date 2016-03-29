@@ -6,11 +6,18 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class APIControllerTest extends WebTestCase
 {
-    public function testIndex()
+    public function testIsbuildable()
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/index');
+        $crawler = $client->request('GET', '/isBuildable');
+    }
+
+    public function testMarkunbuildable()
+    {
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/markUnbuildable');
     }
 
 }
